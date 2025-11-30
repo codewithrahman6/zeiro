@@ -1,0 +1,199 @@
+/* ------ RESET ------ */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  font-family:'Poppins',sans-serif;
+}
+
+/* -------- BACKGROUND (Same as LOGIN) -------- */
+.register-bg{
+  position:fixed;
+  left:0;
+  top:0;
+  width:100vw;
+  height:100vh;
+  background:url("../images/s4.avif") no-repeat center center/cover;
+  animation: bgZoom 22s ease-in-out infinite alternate;
+  filter:brightness(35%) blur(3px);
+  z-index:-2;
+}
+
+/* Background zoom effect */
+@keyframes bgZoom{
+  from{ transform:scale(1); }
+  to{ transform:scale(1.12); }
+}
+
+/* Gold cinematic overlay */
+.register-bg::after {
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background: radial-gradient(circle at 80% 20%, rgba(255,215,80,0.18), transparent 60%);
+  mix-blend-mode:screen;
+  animation: glowMove 10s infinite alternate ease-in-out;
+}
+
+@keyframes glowMove{
+  0% { transform:translateX(-20px) translateY(10px); }
+  100% { transform:translateX(20px) translateY(-10px); }
+}
+
+/* Floating dust particles */
+.dust{
+  position:fixed;
+  width:4px;
+  height:4px;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+  filter:blur(1px);
+  animation:floatingDust 12s linear infinite;
+}
+
+@keyframes floatingDust{
+  from{ transform:translateY(100vh) translateX(-20vw); }
+  to{ transform:translateY(-20vh) translateX(20vw); }
+}
+
+/* Random dust positions */
+.dust:nth-child(1){ left:12%; animation-duration:10s; }
+.dust:nth-child(2){ left:22%; animation-duration:14s; }
+.dust:nth-child(3){ left:33%; animation-duration:11s; }
+.dust:nth-child(4){ left:50%; animation-duration:16s; }
+.dust:nth-child(5){ left:65%; animation-duration:9s; }
+.dust:nth-child(6){ left:75%; animation-duration:13s; }
+.dust:nth-child(7){ left:85%; animation-duration:12s; }
+.dust:nth-child(8){ left:93%; animation-duration:15s; }
+
+/* -------- GLASS BOX (Same as login) -------- */
+.glass{
+  backdrop-filter:blur(22px) saturate(180%);
+  -webkit-backdrop-filter:blur(22px) saturate(180%);
+  background:rgba(255,255,255,0.10);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0px 0px 35px rgba(0,0,0,0.6);
+  animation: floatCard 5s infinite ease-in-out alternate;
+}
+
+/* Floating glass animation */
+@keyframes floatCard{
+  0%{ transform:translateY(0); }
+  100%{ transform:translateY(-12px); }
+}
+
+/* -------- REGISTER BOX -------- */
+.register-container{
+  width:420px;
+  margin:5% auto;
+  padding:35px 40px;
+  text-align:center;
+  color:white;
+  animation: fadeIn .9s ease;
+}
+
+/* LOGO */
+.logo-holder img{
+  width:95px;
+  filter:drop-shadow(0 0 10px rgba(255,215,80,0.5));
+  animation: logoPulse 3s infinite ease-in-out;
+}
+
+@keyframes logoPulse{
+  0%{ filter:drop-shadow(0 0 5px rgba(255,215,80,0.4)); }
+  100%{ filter:drop-shadow(0 0 20px rgba(255,215,80,0.9)); }
+}
+
+.logo-holder h2{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+}
+
+.subtitle{
+  color:#ccc;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+/* -------- INPUTS (same as login) -------- */
+input{
+  width:100%;
+  padding:12px 14px;
+  margin:6px 0 18px;
+  background:rgba(255,255,255,0.18);
+  border:none;
+  border-radius:8px;
+  color:white;
+  transition:.25s;
+}
+input:focus{
+  outline:2px solid #d4af37;
+  background:rgba(255,255,255,0.22);
+}
+
+/* -------- BUTTON -------- */
+.btn-register{
+  width:100%;
+  padding:12px;
+  background:#d4af37;
+  color:black;
+  font-weight:600;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn-register:hover{
+  background:#f1c846;
+  transform:translateY(-2px);
+}
+
+/* Shine effect */
+.btn-register::after{
+  content:"";
+  position:absolute;
+  top:0; left:-100%;
+  width:100%; height:100%;
+  background:rgba(255,255,255,0.3);
+  transform:skewX(-25deg);
+  transition:.5s;
+}
+
+.btn-register:hover::after{
+  left:100%;
+}
+
+/* Messages */
+.error-box, .success-box{
+  padding:10px;
+  border-radius:7px;
+  margin-bottom:15px;
+  font-size:14px;
+  text-align:center;
+}
+.error-box{ background:rgba(255,50,50,0.5); }
+.success-box{ background:rgba(80,255,120,0.5); }
+
+/* Bottom links */
+.bottom-text{
+  margin-top:15px;
+  color:#ccc;
+}
+.bottom-text a{
+  color:#d4af37;
+}
