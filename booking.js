@@ -181,7 +181,7 @@ document.getElementById("payBtn").onclick = ()=>{
             .then(txt=>{
                 if (txt.trim() === "success") {
                     alert("Booking Confirmed! Payment ID: " + response.razorpay_payment_id);
-                    window.location.href = "dashboard_client.php";
+                    window.location.href = "client/dashboard.php";
                 } else {
                     alert("Server: " + txt);
                 }
@@ -199,3 +199,4 @@ document.getElementById("payBtn").onclick = ()=>{
 // init
 renderAddons();
 calculatePrice();
+
